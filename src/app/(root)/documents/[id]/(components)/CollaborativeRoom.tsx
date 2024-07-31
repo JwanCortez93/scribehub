@@ -5,7 +5,7 @@ import { Editor } from "@/app/(root)/documents/[id]/(components)/editor/Editor";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 import { ClientSideSuspense, RoomProvider } from "@liveblocks/react/suspense";
-import Header from "./Header";
+import Header from "../../../(components)/Header";
 
 const CollaborativeRoom = () => {
   return (

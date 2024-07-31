@@ -17,7 +17,7 @@
     --card-foreground: hsl(47, 100%, 50%);
 
     --popover: hsl(39, 100%, 44%);
-    --popover-foreground: hsl(0, 0%, 0%);
+    --popover-foreground: hsl(42, 100%, 9%);
 
     --primary: hsl(42, 92%, 58%);
     --primary-foreground: hsl(30, 100%, 34%);
@@ -133,7 +133,7 @@
   }
 
   .document-list-empty {
-    @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-dark-200 px-10 py-8;
+    @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-popover-foreground px-10 py-8;
   }
 
   .document-title-input {
