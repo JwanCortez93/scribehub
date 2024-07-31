@@ -5,7 +5,7 @@
 /* @import "@liveblocks/react-ui/styles.css"; */
 /* @import "@liveblocks/react-lexical/styles.css"; */
 
-/* @import "../styles/dark-theme.css"; */
+@import "../styles/dark-theme.css";
 
 /* ========================================== TAILWIND STYLES */
 @layer base {
@@ -117,7 +117,7 @@
   }
 
   .header {
-    @apply min-h-[92px] min-w-full flex-nowrap bg-dark-100 flex w-full items-center justify-between gap-2 px-4;
+    @apply min-h-[92px] min-w-full flex-nowrap bg-background flex w-full items-center justify-between gap-2 px-4;
   }
 
   .document-list-container {
