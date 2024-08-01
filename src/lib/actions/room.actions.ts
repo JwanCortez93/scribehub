@@ -69,6 +69,6 @@ export const updateDocument = async (roomId: string, title: string) => {
     revalidatePath(`/documents/${roomId}`);
     return parseStringify(updateDocument);
   } catch (error) {
-    console.log("An error ocurred when udpating the document: ", error);
+    console.log("An error occurred when udpating the document: ", error);
   }
 };

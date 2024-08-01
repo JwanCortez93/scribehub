@@ -19,6 +19,7 @@ import {
 import Loader from "@/components/Loader";
 import FloatingToolbarPlugin from "./plugins/FloatingToolbarPlugin";
 import { useThreads } from "@liveblocks/react/suspense";
+import { Comments } from "../Comments";
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some rich text...</div>;
@@ -46,7 +47,7 @@ export function Editor({
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
-      <div className="editor-container size-full mt-5">
+      <div className="editor-container size-full ">
         <div className="toolbar-wrapper flex min-w-full justify-between">
           <ToolbarPlugin />
         </div>
@@ -70,6 +71,7 @@ export function Editor({
           <LiveblocksPlugin>
             <FloatingComposer className="w-[350px]" />
             <FloatingThreads threads={threads} />
+            <Comments />
           </LiveblocksPlugin>
         </div>
       </div>
