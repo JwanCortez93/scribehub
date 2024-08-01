@@ -14,10 +14,11 @@ import { SquarePen } from "lucide-react";
 import { updateDocument } from "@/lib/actions/room.actions";
 
 const CollaborativeRoom = ({
+  users,
+  currentUserType,
   roomId,
   roomMetadata,
 }: CollaborativeRoomProps) => {
-  const currentUserType = "editor";
   const [documentTitle, setDocumentTitle] = useState(roomMetadata.title);
   const [editing, setEditing] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -111,7 +112,7 @@ const CollaborativeRoom = ({
               </SignedIn>
             </div>
           </Header>
-          <Editor />;
+          <Editor roomId={roomId} currentUserType={currentUserType} />;
         </div>
       </ClientSideSuspense>
     </RoomProvider>
