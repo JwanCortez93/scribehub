@@ -109,7 +109,7 @@
   }
 
   .toolbar-wrapper {
-    @apply z-50 custom-scrollbar w-screen overflow-auto border-y border-t-neutral-800 border-b-primary-foreground bg-background pl-3 pr-4 shadow-sm;
+    @apply z-50 custom-scrollbar w-screen overflow-auto border-y border-t-neutral-800 border-b-primary-foreground bg-background pl-3 pr-4 shadow-sm relative;
   }
 
   .editor-wrapper {
@@ -117,7 +117,7 @@
   }
 
   .header {
-    @apply min-h-[92px] min-w-full flex-nowrap bg-background flex w-full items-center justify-between gap-2 px-4;
+    @apply min-h-[92px] min-w-full flex-nowrap bg-background flex w-full items-center justify-between gap-2 px-4 z-50;
   }
 
   .document-list-container {
@@ -233,9 +233,8 @@
 /* ======================== Liveblocks Override */
 .lb-root {
   --lb-accent-subtle: #eac7005b;
-  --lb-radius: 0px;
-  --lb-dynamic-background: var(--primary);
-  
+  --lb-radius: 0.5rem;
+  --lb-dynamic-background: var(--background);
 }
 
 .lb-comment,
@@ -243,8 +242,6 @@
 .lb-composer,
 .lb-comment-reaction {
   background-color: var(--secondary);
-  color: var(--primary);
-  
 }
 
 .lb-button {
@@ -295,6 +292,16 @@
   color: var(--primary);
 }
 
+.lb-dropdown-item,
+.lb-dropdown-item-icon {
+  background: var(--primary-foreground);
+}
+
+.lb-dropdown-item:hover,
+.lb-dropdown-item:hover .lb-dropdown-item-icon {
+  background: var(--secondary);
+}
+
 .lb-composer-action {
   padding: 8px;
 }
@@ -316,6 +323,14 @@
   color: var(--secondary-foreground);
 }
 
+.lb-emoji-picker-search {
+  background: var(--primary);
+}
+
+.lb-emoji-picker-category-header-title {
+  color: var(--primary);
+}
+
 .data-liveblocks-portal {
   color: var(--secondary-foreground) !important;
 }
@@ -331,9 +346,9 @@
 }
 
 .lb-lexical-floating-threads-thread:where([data-resolved]) {
-  opacity: 40%;
+  filter: grayscale(70%) brightness(70%);
 }
 
 .lb-elevation {
-  background: var(--foreground);
+  background: var(--primary-foreground);
 }
