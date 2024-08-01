@@ -129,7 +129,7 @@
   }
 
   .document-list-item {
-    @apply flex items-center justify-between gap-4 rounded-lg bg-doc bg-cover p-5 shadow-xl;
+    @apply flex items-center justify-between gap-4 rounded-lg p-5 shadow-xl;
   }
 
   .document-list-empty {

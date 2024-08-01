@@ -35,6 +35,15 @@ export const createDocument = async ({
   }
 };
 
+export const getDocuments = async (email: string) => {
+  try {
+    const rooms = await liveblocks.getRooms({ userId: email });
+    return parseStringify(rooms);
+  } catch (error) {
+    console.log("There was an error getting the documents: ", error);
+  }
+};
+
 export const getDocument = async ({
   roomId,
   userId,
