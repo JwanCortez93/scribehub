@@ -31,7 +31,7 @@ const DeleteModal = ({ roomId }: DeleteModalProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="min-w-9 rounded-xl bg-transparent p-2 transition-all hover:bg-primary hover:text-destructive">
+        <Button className="min-w-9 rounded-xl bg-transparent p-2 transition-all hover:bg-red-300 hover:text-destructive">
           <Trash2 />
         </Button>
       </DialogTrigger>

@@ -19,6 +19,8 @@ const Collaborator = ({
   const [userType, setUserType] = useState(collaborator.userType || "viewer");
   const [loading, setLoading] = useState(false);
 
+  console.log({ user });
+
   const shareDocumentHandler = async (type: string) => {
     setLoading(true);
 
@@ -62,18 +64,24 @@ const Collaborator = ({
         <p className="text-sm text-primary">Owner</p>
       ) : (
         <div className="flex items-center">
-          <UserTypeSelector
-            userType={userType}
-            setUserType={setUserType}
-            onClickHandler={shareDocumentHandler}
-          />
-          <Button
-            type="button"
-            className="text-white bg-destructive hover:brightness-110"
-            onClick={() => removeCollaboratorHandler(collaborator.email)}
-          >
-            Remove
-          </Button>
+          {user.id === creatorId || user.id === collaborator.id ? (
+            <>
+              {user.id === creatorId ? (
+                <UserTypeSelector
+                  userType={userType}
+                  setUserType={setUserType}
+                  onClickHandler={shareDocumentHandler}
+                />
+              ) : null}
+              <Button
+                type="button"
+                className="text-white bg-destructive hover:brightness-110"
+                onClick={() => removeCollaboratorHandler(collaborator.email)}
+              >
+                Remove
+              </Button>
+            </>
+          ) : null}
         </div>
       )}
     </li>

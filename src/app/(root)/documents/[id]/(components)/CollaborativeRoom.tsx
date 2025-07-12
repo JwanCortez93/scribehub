@@ -92,13 +92,20 @@ const CollaborativeRoom = ({
                   <p className="document-title">{documentTitle}</p>
                 </>
               )}
-              {currentUserType === "editor" && !editing && (
-                <SquarePen
-                  onClick={() => setEditing(true)}
-                  className="stroke-1 cursor-pointer"
-                />
-              )}
-              {currentUserType !== "editor" && !editing && (
+              {(currentUserType === "editor" ||
+                currentUserType === "creator") &&
+                !editing && (
+                  <>
+                    <SquarePen
+                      onClick={() => setEditing(true)}
+                      className="stroke-1 cursor-pointer"
+                    />
+                    <p className="view-only-tag">
+                      {currentUserType === "creator" ? "Owner" : "Editor"}
+                    </p>
+                  </>
+                )}
+              {currentUserType === "viewer" && !editing && (
                 <p className="view-only-tag">Read only</p>
               )}
               {loading && <p className="text-sm text-neutral-400">Saving...</p>}
@@ -119,7 +126,12 @@ const CollaborativeRoom = ({
               </SignedIn>
             </div>
           </Header>
-          <Editor roomId={roomId} currentUserType={currentUserType} />;
+          <Editor
+            roomId={roomId}
+            creatorId={roomMetadata.creatorId}
+            currentUserType={currentUserType}
+          />
+          ;
         </div>
       </ClientSideSuspense>
     </RoomProvider>

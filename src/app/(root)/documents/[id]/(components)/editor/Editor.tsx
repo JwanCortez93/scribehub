@@ -18,7 +18,7 @@ import {
 } from "@liveblocks/react-lexical";
 import Loader from "@/components/Loader";
 import FloatingToolbarPlugin from "./plugins/FloatingToolbarPlugin";
-import { useThreads } from "@liveblocks/react/suspense";
+import { useSelf, useThreads } from "@liveblocks/react/suspense";
 import { Comments } from "../Comments";
 import DeleteModal from "@/app/(root)/(components)/DeleteModal";
 
@@ -28,11 +28,15 @@ function Placeholder() {
 
 export function Editor({
   roomId,
+  creatorId,
   currentUserType,
 }: {
   roomId: string;
+  creatorId: string;
   currentUserType: UserType;
 }) {
+  const { info } = useSelf();
+
   const status = useEditorStatus();
   const { threads } = useThreads();
   const initialConfig = liveblocksConfig({
@@ -51,7 +55,7 @@ export function Editor({
       <div className="editor-container size-full ">
         <div className="toolbar-wrapper flex min-w-full justify-between">
           <ToolbarPlugin />
-          {currentUserType === "editor" && <DeleteModal roomId={roomId} />}
+          {info.id === creatorId && <DeleteModal roomId={roomId} />}
         </div>
         <div className="editor-wrapper flex flex-col items-center justify-start">
           {status === "not-loaded" || status === "loading" ? (
